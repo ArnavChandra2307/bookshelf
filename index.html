@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshelf</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.png" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookshelf Palace</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>📚 Bookshelf</h1>
-    <p>Discover and share emotional, motivational, and personal books</p>
+  <header class="hero-section">
+    <div class="container">
+      <h1><span>Bookshelf</span><br>by Arnav Chandra</h1>
+      <p>Access all the books in the category of flipbook, PDF which are free to read and download</p>
+      <a href="#library" class="cta-button">Browse Collection</a>
+    </div>
   </header>
 
-  <main class="book-grid">
-    <!-- Book 1 -->
-    <div class="book-card">
-      <h2>Silence is Everything</h2>
-      <p>By Arnav</p>
-      <a href="silence.html" target="_blank">Open</a>
+  <section class="library" id="library">
+    <div class="container book-grid" id="books-container">
+      <!-- Books will be loaded by script.js -->
     </div>
-
-    <!-- Book 2 -->
-    <div class="book-card">
-      <h2>Silent Script: Magical Words of Transformation</h2>
-      <p>By Aradhya</p>
-      <a href="silent_script.html" target="_blank">Open</a>
-    </div>
-
-    <!-- More books? Just copy the card above and change details -->
-  </main>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Bookshelf by Arnav. All rights reserved.</p>
+    <div class="container">
+      <p> Bookshelf Palace.... Made and Maintained By Arnav Chandra</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
