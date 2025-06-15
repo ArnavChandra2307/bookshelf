@@ -2,11 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Silence shows Everything :Life of an average grader Introvert- Book Details</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silence is Everything - Book Details</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00c6ff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #00c6ff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     .book-details {
       padding: 4rem 1rem;
       background: #0e0e0e;
@@ -32,6 +109,9 @@
     .download-buttons {
       text-align: center;
       margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .download-buttons a {
@@ -41,7 +121,6 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      margin: 0 1rem;
       display: inline-block;
       box-shadow: 0 0 20px rgba(255, 78, 205, 0.4);
       transition: all 0.3s ease;
@@ -51,36 +130,61 @@
       box-shadow: 0 0 30px rgba(255, 78, 205, 0.7);
       transform: translateY(-3px);
     }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+      background: #0a0a0a;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-title">📚 Bookshelf Palace</div>
+    <div class="navbar-links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
   <section class="book-details">
-    <h2 data-aos="fade-down">Silence shows Everything :Life of an average grader Introvert</h2>
+    <h2 data-aos="fade-down">Silence is Everything</h2>
     <div class="book-description" data-aos="fade-up" data-aos-delay="100">
-      <p>
-        "Silence Shows Everything: Life of an Average Grader Introvert" is a heart-touching journey into the life of an average grader — someone who isn’t a topper, isn’t a failure, but lives quietly in the middle. Through honest reflections and emotional narratives, the book explores what it truly feels like to be an introvert in a loud world, where only the extremes are noticed and the silent voices are often ignored.
-      </p>
-      <p>
-        Written by a 15-year-old student, this book gives voice to those who may not shine in grades but hold galaxies within their thoughts. Arnav shares real emotions, quiet struggles, and the small joys that often go unseen in school life.
-      </p>
-      <p>
-        From the pressure to perform to the peace in solitude, each chapter tells a story many students will silently relate to. With no desire for fame or profit, this book exists purely to connect, comfort, and celebrate the quiet ones — the ones who feel everything, even when they say nothing.
-      </p>
+      <p>"Silence Shows Everything" is a heart-touching journey into the life of an average grader — someone who isn’t a topper, isn’t a failure, but lives quietly in the middle. Through honest reflections and emotional narratives, the book explores what it truly feels like to be an introvert in a loud world, where only the extremes are noticed and the silent voices are often ignored.</p>
+      <p>Written by a 15-year-old student, this book gives voice to those who may not shine in grades but hold galaxies within their thoughts. Arnav shares real emotions, quiet struggles, and the small joys that often go unseen in school life.</p>
+      <p>From the pressure to perform to the peace in solitude, each chapter tells a story many students will silently relate to. With no desire for fame or profit, this book exists purely to connect, comfort, and celebrate the quiet ones — the ones who feel everything, even when they say nothing.</p>
     </div>
     <div class="download-buttons" data-aos="zoom-in-up" data-aos-delay="200">
-      <!-- 🔗 EDIT THESE LINKS BELOW TO POINT TO YOUR PDF & FLIPBOOK -->
       <a href="../downloads/silence.pdf" target="_blank">📄 PDF: Read / Download</a>
       <a href="https://issuu.com/arnavchandra/docs/silence_shows_everything_life_of_an_average_grader" target="_blank">📖 Flipbook: Read Online & Share</a>
     </div>
   </section>
 
   <footer data-aos="fade-up" data-aos-delay="300">
-    <p>© 2025 BookshelfPalace. Made and managed by Arnav Chandra</p>
+    <p>Bookshelf Palace — Made and Maintained by Arnav Chandra © 2025</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
   </script>
 </body>
 </html>
