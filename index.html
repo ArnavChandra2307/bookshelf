@@ -17,7 +17,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 20px 30px;
       background: rgba(0, 0, 0, 0.8);
       position: sticky;
       top: 0;
@@ -31,18 +31,49 @@
       text-shadow: 0 0 8px #00c6ff;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #00c6ff;
+      cursor: pointer;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+
     .navbar-links a {
-      margin-left: 25px;
       color: #ccc;
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
-      cursor: pointer;
     }
 
     .navbar-links a:hover {
       color: #00c6ff;
       text-shadow: 0 0 8px #00c6ff;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #111;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
     }
 
     .hero {
@@ -130,29 +161,14 @@
       background: #0a0a0a;
     }
 
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .navbar-links {
-        margin-top: 10px;
-      }
-
-      .navbar-links a {
-        display: inline-block;
-        margin: 10px 10px 0 0;
-      }
-    }
-
-    /* 🔒 Modal Hidden by Default */
     #helpModal {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
       z-index: 10000;
       align-items: center;
       justify-content: center;
@@ -190,18 +206,18 @@
       font-weight: bold;
       cursor: pointer;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ✅ FIXED NAVBAR -->
   <div class="navbar">
     <div class="navbar-title">📚 Bookshelf Palace</div>
-    <div class="navbar-links">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="navbar-links" id="navLinks">
       <a href="about.html">About Us</a>
-      <a href="javascript:void(0)" onclick="openHelpModal()">Noticed An Issue?</a>
-      <a href="contact.html">Add Your Book to the Tile?</a>
+      <a href="#" onclick="openHelpModal()">Help</a>
+      <a href="contact.html">Add Your Book?</a>
     </div>
   </div>
 
@@ -236,20 +252,19 @@
     </div>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPT -->
   <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
     function openHelpModal() {
-      document.getElementById('helpModal').style.display = 'flex';
+      document.getElementById("helpModal").style.display = "flex";
     }
 
     function closeHelpModal() {
-      document.getElementById('helpModal').style.display = 'none';
+      document.getElementById("helpModal").style.display = "none";
     }
-
-    // DEBUG: Remove any accidental calls
-    window.addEventListener('load', () => {
-      // console.log("Page loaded, modal should NOT open unless clicked");
-    });
   </script>
 
   <footer>
