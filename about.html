@@ -195,7 +195,38 @@
 
   <!-- JS for toggle -->
   
+  <!-- Help Modal -->
+<div id="helpModal" class="modal">
+  <div class="modal-content">
+    <h2>Need Help?</h2>
+    <p>Email: <strong>arnavchandra360@gmail.com</strong></p>
+    <button onclick="closeHelpModal()">Close</button>
   </div>
+</div>
+
+<!-- JS for Menu & Modal -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('active');
+  }
+
+  function openHelpModal() {
+    document.getElementById('helpModal').style.display = 'flex';
+  }
+
+  function closeHelpModal() {
+    document.getElementById('helpModal').style.display = 'none';
+  }
+
+  // Close modal if clicked outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('helpModal');
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
 
 </body>
 </html>
