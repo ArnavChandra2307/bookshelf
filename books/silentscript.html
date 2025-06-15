@@ -3,89 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Silent Script - Magical Words of Transformation</title>
-  <link rel="stylesheet" href="../style.css" />
+  <title>Silent Script - Book Details</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
     body {
-      background-color: #0a0a0a;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: white;
     }
 
-    .book-wrapper {
-      max-width: 800px;
-      margin: 50px auto;
-      text-align: center;
-      padding: 0 20px;
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    .book-title {
-      font-size: 2rem;
+    .navbar-title {
+      font-size: 1.5rem;
       font-weight: bold;
-      color: #ff3cac;
-      text-shadow: 0 0 8px #ff3cac, 0 0 18px #784ba0;
-      margin-bottom: 30px;
+      color: #00c6ff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #00c6ff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .book-details {
+      padding: 4rem 1rem;
+      background: #0e0e0e;
+    }
+
+    .book-details h2 {
+      color: #ff6a00;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 8px #ff6a00;
     }
 
     .book-description {
-      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #ccc;
       line-height: 1.7;
-      color: #ddd;
-      margin-bottom: 30px;
+      padding-bottom: 2rem;
     }
 
-    .book-buttons {
+    .download-buttons {
+      text-align: center;
+      margin-top: 2rem;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1rem;
     }
 
-    .book-buttons a {
-      padding: 12px 20px;
-      background: linear-gradient(to right, #ff3cac, #784ba0);
+    .download-buttons a {
+      background: linear-gradient(to right, #ff6a00, #ffb347);
+      padding: 1rem 2rem;
+      border-radius: 30px;
       color: white;
       text-decoration: none;
-      border-radius: 30px;
       font-weight: bold;
-      box-shadow: 0 0 10px #ff3cac;
-      transition: 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
+      transition: all 0.3s ease;
     }
 
-    .book-buttons a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #784ba0;
+    .download-buttons a:hover {
+      box-shadow: 0 0 30px rgba(255, 106, 0, 0.7);
+      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 50px;
       text-align: center;
-      color: #888;
+      padding: 2rem;
       font-size: 0.9rem;
+      color: #888;
+      background: #0a0a0a;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="book-wrapper">
-    <div class="book-title">Silent Script: Magical Words of Transformation</div>
 
-    <div class="book-description">
-      <i>“In silence, stories whisper the loudest.”</i><br><br>
-      <b>Silent Script</b> is a beautifully written collection of motivational quotes touching different aspects of life — <b>Love, Life, and Wisdom</b> — all penned by a young 15-year-old author.  
-      Each quote resonates with emotions, experience, and the unspoken strength one builds over time.<br><br>
-      Whether you seek comfort, courage, or a quiet push toward transformation, these words offer exactly what the heart needs.
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-title">📚 Bookshelf Palace</div>
+    <div class="navbar-links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="#">Help</a>
     </div>
-
-    <div class="book-buttons">
-      <a href="../downloads/silentscript.pdf" target="_blank">📄 PDF: Read / Download</a>
-      <a href="https://online.anyflip.com/wwzbi/vuat/mobile/index.html" target="_blank">📖 Flipbook: Read Online & Share</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-
-    <footer>
-     Bookshelf Palace.... Made and Maintained By Arnav Chandra
-    </footer>
   </div>
+
+  <!-- MAIN CONTENT -->
+  <section class="book-details">
+    <h2 data-aos="fade-down">Silent Script: Magical Words OF Transformation</h2>
+    <div class="book-description" data-aos="fade-up" data-aos-delay="100">
+      <p>"Silent Script" is not just a book — it's a poetic expression of unspoken thoughts and emotions that hide behind a quiet mind. Each page is a reflection of silence, painted with metaphors, emotions, and whispers from the soul.</p>
+      <p>Perfect for poetry lovers and quiet thinkers, this collection reveals the beauty in being unheard. It’s about finding your voice in silence, and realizing that some of the loudest feelings are never spoken aloud.</p>
+      <p>Written by a young creative, it stands as proof that age doesn't define depth — expression does. Dive in, feel, and get lost in the script that never shouted but always meant something.</p>
+    </div>
+    <div class="download-buttons" data-aos="zoom-in-up" data-aos-delay="200">
+      <a href="../downloads/silent-script.pdf" target="_blank">📄 PDF: Read / Download</a>
+      <a href="https://issuu.com/arnavchandra/docs/silent_script" target="_blank">📖 Flipbook: Read Online & Share</a>
+    </div>
+  </section>
+
+  <footer data-aos="fade-up" data-aos-delay="300">
+    <p>Bookshelf Palace — Made and Maintained by Arnav Chandra © 2025</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
