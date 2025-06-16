@@ -3,12 +3,12 @@ const books = [
   {
     title: "Silence shows Everything: Life of an Average Grader Introvert",
     imageUrl: "covers/silence.jpg",
-    link: "silentscript.html"
+    link: "bookks/silence.html"
   },
   {
     title: "Silent Script: Magical Words OF Transformation",
     imageUrl: "covers/silentscript.png",
-    link: "#"
+    link: "books/silentscript.html"
   }
 ];
 
