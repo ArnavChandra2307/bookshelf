@@ -5,213 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bookshelf Palace - Arnav Chandra</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020024, #090979, #000);
-      color: #fff;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 30px;
-      background: rgba(0, 0, 0, 0.8);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00c6ff;
-      text-shadow: 0 0 8px #00c6ff;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: #00c6ff;
-      cursor: pointer;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .navbar-links a {
-      color: #ccc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .navbar-links a:hover {
-      color: #00c6ff;
-      text-shadow: 0 0 8px #00c6ff;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .navbar-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: #111;
-        padding: 15px;
-        border-radius: 10px;
-      }
-
-      .navbar-links.active {
-        display: flex;
-      }
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px 60px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #00c6ff;
-      text-shadow: 0 0 10px #00c6ff;
-      margin-bottom: 10px;
-    }
-
-    .hero h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      color: #bbb;
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
-
-    .hero button {
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      border: none;
-      padding: 14px 28px;
-      font-size: 1rem;
-      border-radius: 30px;
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 0 10px #00c6ff;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .hero button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00c6ff;
-    }
-
- .book-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
-    gap: 100px;
-    padding: 100px;
-    background: #111;
-  }   
-    .book-tile {
-      background-color: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.2);
-      transition: transform 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .book-tile:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
-    }
-
-    .book-tile img {
-      width: 100%;
-      height: 700px;
-      display: block;
-    }
-
-    .book-title {
-      padding: 15px;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #777;
-      background: #0a0a0a;
-    }
-
-    #helpModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #helpModalContent {
-      background: #1b1b1b;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 30px #00d9ff;
-    }
-
-    #helpModalContent h2 {
-      color: #00d9ff;
-    }
-
-    #helpModalContent p {
-      color: #ccc;
-      margin-top: 10px;
-    }
-
-    #helpModalContent b {
-      color: #00d9ff;
-    }
-
-    #helpModalContent button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #00d9ff;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
-
-  <!-- ✅ FIXED NAVBAR -->
   <div class="navbar">
-    <div class="navbar-title">📚 Bookshelf Palace</div>
+    <div class="navbar-title">
+  <img src="favicon.ico" alt="Logo" class="site-logo" />
+  Bookshelf Palace
+</div>
+
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <div class="navbar-links" id="navLinks">
       <a href="about.html">About Us</a>
@@ -220,7 +21,6 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
   <div class="hero">
     <h1>Bookshelf Palace</h1>
     <h2>by Arnav Chandra</h2>
@@ -228,20 +28,21 @@
     <button onclick="document.querySelector('.book-grid').scrollIntoView({behavior: 'smooth'})">Browse Collection</button>
   </div>
 
-  <!-- BOOK GRID -->
-  <div class="book-grid">
-    <a href="books/silence.html" class="book-tile">
-      <img src="covers/silence.jpg" alt="Silence is Everything">
-      <div class="book-title">Silence is Everything: Life of an Average Grader</div>
-    </a>
+  <div class="book-grid" id="bookGrid"></div>
 
-    <a href="books/silentscript.html" class="book-tile">
-      <img src="covers/silentscript.png" alt="Silent Script">
-      <div class="book-title">Silent Script: Magical Words of Transformation</div>
-    </a>
+  <!-- Popup Modal -->
+  <div id="readConfirmPopup" class="popup-overlay">
+    <div class="popup-content">
+      <img id="popupBookCover" src="" alt="Book Cover" class="popup-book-cover" />
+      <div id="popupBookTitle" class="popup-book-title">Book Title</div>
+      <div class="popup-buttons">
+        <button id="confirmReadNow" class="popup-button">Read Now</button>
+        <button id="confirmNotNow" class="popup-button">Not Now</button>
+      </div>
+    </div>
   </div>
 
-  <!-- HELP MODAL -->
+  <!-- Help Modal -->
   <div id="helpModal">
     <div id="helpModalContent">
       <h2>Need Help?</h2>
@@ -251,7 +52,11 @@
     </div>
   </div>
 
-  <!-- SCRIPT -->
+  <footer>
+    Bookshelf Palace — Created and Maintained by Arnav Chandra
+  </footer>
+
+  <script src="script.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
@@ -265,10 +70,5 @@
       document.getElementById("helpModal").style.display = "none";
     }
   </script>
-
-  <footer>
-    Bookshelf Palace — Created and Maintained by Arnav Chandra
-  </footer>
-
 </body>
 </html>
