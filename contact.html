@@ -13,7 +13,6 @@
       line-height: 1.6;
     }
 
-    /* Navbar styles */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -69,12 +68,12 @@
         margin-top: 10px;
       }
 
-      .navbar-links a {
-        padding: 10px 0;
-      }
-
       .navbar-links.active {
         display: flex;
+      }
+
+      .navbar-links a {
+        padding: 10px 0;
       }
     }
 
@@ -142,11 +141,60 @@
       background: #0a0a0a;
       margin-top: 3rem;
     }
+
+    /* Help Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px #00d9ff;
+      color: #ffffff;
+      animation: slideIn 0.3s ease-in-out;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    .modal-content button {
+      margin-top: 1.5rem;
+      padding: 10px 25px;
+      background-color: #00d9ff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- 🌐 NAVBAR START -->
+  <!-- 🌐 NAVBAR -->
   <nav class="navbar">
     <div class="navbar-title">📚 Bookshelf Palace</div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -156,8 +204,8 @@
       <a href="contact.html">Add Your Book?</a>
     </div>
   </nav>
-  <!-- 🌐 NAVBAR END -->
 
+  <!-- 🔗 MAIN CONTENT -->
   <div class="container">
     <h1>Submit Your Book 📚</h1>
 
@@ -168,7 +216,7 @@
 
     <div class="step">
       <h2>Step 2: Compose Your Mail</h2>
-      <p>Send an email to <b style="color: #00d9ff;">arnavchandra360@gmail.com</b> with the subject line: <i>“Book Submission - [Your Book Title]”</i>. In the email, mention a short description of your book, attach the files, and write your name.</p>
+      <p>Send an email to <span style="color: #00d9ff; font-weight: bold;">arnavchandra360@gmail.com</span> with the subject line: <i>“Book Submission - [Your Book Title]”</i>. In the email, mention a short description of your book, attach the files, and write your name.</p>
     </div>
 
     <div class="step">
@@ -189,10 +237,23 @@
     </div>
   </div>
 
+  <!-- 🔻 FOOTER -->
   <footer>
     Managed and maintained by Arnav Chandra — Bookshelf Palace © 2025
   </footer>
 
+  <!-- ✅ HELP MODAL -->
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <h2>Need Help?</h2>
+      <p>Facing any issue? Found a bug? Or just a code error?</p>
+      <p>Mail me fast so I can fix it 😎<br>
+        <span style="color:#00d9ff; font-weight:bold;">arnavchandra360@gmail.com</span></p>
+      <button onclick="closeHelpModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- 💻 JS SCRIPTS -->
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
@@ -200,7 +261,19 @@
     }
 
     function openHelpModal() {
-      alert("Need help? Mail me at: arnavchandra360@gmail.com");
+      document.getElementById('helpModal').style.display = 'flex';
+    }
+
+    function closeHelpModal() {
+      document.getElementById('helpModal').style.display = 'none';
+    }
+
+    // Close on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById('helpModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   </script>
 
