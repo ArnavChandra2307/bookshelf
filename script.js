@@ -1,36 +1,77 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const books = [
-    {
-      title: "Silence shows Everything",
-      description: "Silence Shows Everything is a heart-touching journey into the life of an average grader — someone who isn’t a topper, isn’t a failure, but lives quietly in the middle...",
-      cover: "covers/silence.jpg",
-      page: "books/silence.html"
-    },
-    {
-      title: "Silent Script: Magical Words OF Transformation",
-      description: "My name is Aradhya Gupta, and I have always believed in the quiet magic that words carry...",
-      cover: "covers/silentscript.png",
-      page: "books/silentscript.html"
+// Sample Books Data
+const books = [
+  {
+    title: "Silence shows Everything: Life of an Average Grader Introvert",
+    imageUrl: "covers/silence.jpg",
+    link: "silentscript.html"
+  },
+  {
+    title: "Silent Script: Magical Words OF Transformation",
+    imageUrl: "covers/silentscript.png",
+    link: "#"
+  }
+];
+
+// Populate the book grid
+const bookGrid = document.getElementById("bookGrid");
+books.forEach((book, index) => {
+  const tile = document.createElement("div");
+  tile.className = "book-tile";
+  tile.innerHTML = `
+    <img src="${book.imageUrl}" alt="${book.title}" />
+    <div class="book-title">${book.title}</div>
+  `;
+  tile.addEventListener("click", () => openReadPopup(index));
+  bookGrid.appendChild(tile);
+});
+
+// Popup control
+const popup = document.getElementById("readConfirmPopup");
+const readNowBtn = document.getElementById("confirmReadNow");
+const notNowBtn = document.getElementById("confirmNotNow");
+
+let selectedBookIndex = null;
+
+function openReadPopup(index) {
+  selectedBookIndex = index;
+  popup.classList.add("active");
+
+  // Set content
+  document.getElementById("popupBookCover").src = books[index].imageUrl;
+  document.getElementById("popupBookTitle").textContent = books[index].title;
+
+  // Reset animations
+  readNowBtn.classList.remove("animate-jump");
+  notNowBtn.classList.remove("animate-sad");
+  void readNowBtn.offsetWidth;
+  void notNowBtn.offsetWidth;
+}
+
+// Hover Effects
+readNowBtn.addEventListener("mouseover", () => {
+  readNowBtn.classList.remove("animate-jump");
+  void readNowBtn.offsetWidth;
+  readNowBtn.classList.add("animate-jump");
+});
+
+notNowBtn.addEventListener("mouseover", () => {
+  notNowBtn.classList.remove("animate-sad");
+  void notNowBtn.offsetWidth;
+  notNowBtn.classList.add("animate-sad");
+});
+
+// Button Actions
+readNowBtn.addEventListener("click", () => {
+  if (selectedBookIndex !== null) {
+    const book = books[selectedBookIndex];
+    if (book.link !== "#") {
+      window.location.href = book.link;
+    } else {
+      alert("This book link is coming soon!");
     }
-  ];
+  }
+});
 
-  const grid = document.getElementById("bookGrid");
-
-  books.forEach((book, index) => {
-    const card = document.createElement("a");
-    card.className = "book-card";
-    card.href = book.page;
-    card.target = "_blank"; // opens in new tab
-    card.style.animationDelay = `${index * 0.2}s`;
-
-    card.innerHTML = `
-      <img src="${book.cover}" alt="${book.title}" />
-      <div class="book-info">
-        <h3>${book.title}</h3>
-        <p>${book.description}</p>
-      </div>
-    `;
-
-    grid.appendChild(card);
-  });
+notNowBtn.addEventListener("click", () => {
+  popup.classList.remove("active");
 });
